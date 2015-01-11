@@ -72,6 +72,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private static final String KEY_NOTIFICATION_VOLUME = "notification_volume";
     private static final String KEY_PHONE_RINGTONE = "ringtone";
     private static final String KEY_NOTIFICATION_RINGTONE = "notification_ringtone";
+    private static final String KEY_ALARM_RINGTONE = "alarm_ringtone";
     private static final String KEY_VIBRATE_WHEN_RINGING = "vibrate_when_ringing";
     private static final String KEY_NOTIFICATION = "notification";
     private static final String KEY_LOCK_SCREEN_NOTIFICATIONS = "lock_screen_notifications";
@@ -108,6 +109,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private int mLockscreenSelectedValue;
     private ComponentName mSuppressor;
     private int mRingerMode = -1;
+    private Preference mAlarmRingtonePreference;
 
     private ListPreference mHeadsUpGlobalSwitch;
     private ListPreference mHeadsUpSnoozeTime;
@@ -379,6 +381,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
             mPhoneRingtonePreference = null;
         }
         mNotificationRingtonePreference = root.findPreference(KEY_NOTIFICATION_RINGTONE);
+        mAlarmRingtonePreference = root.findPreference(KEY_ALARM_RINGTONE);
     }
 
     private void lookupRingtoneNames() {
@@ -400,6 +403,13 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                         mContext, RingtoneManager.TYPE_NOTIFICATION);
                 if (summary != null) {
                     mHandler.obtainMessage(H.UPDATE_NOTIFICATION_RINGTONE, summary).sendToTarget();
+                }
+            }
+            if (mAlarmRingtonePreference != null) {
+                final CharSequence summary = updateRingtoneName(
+                        mContext, RingtoneManager.TYPE_ALARM);
+                if (summary != null) {
+                    mHandler.obtainMessage(H.UPDATE_ALARM_RINGTONE, summary).sendToTarget();
                 }
             }
         }
@@ -612,6 +622,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         private static final int STOP_SAMPLE = 3;
         private static final int UPDATE_EFFECTS_SUPPRESSOR = 4;
         private static final int UPDATE_RINGER_MODE = 5;
+        private static final int UPDATE_ALARM_RINGTONE = 6;
 
         private H() {
             super(Looper.getMainLooper());
@@ -635,6 +646,10 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                 case UPDATE_RINGER_MODE:
                     updateRingerMode();
                     break;
+                case UPDATE_ALARM_RINGTONE:
+                    mAlarmRingtonePreference.setSummary((CharSequence) msg.obj);
+                    break;
+
             }
         }
     }
