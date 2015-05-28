@@ -86,9 +86,11 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
     private static final String KEY_SLIMREMIX_VERSION = "slimremix_version";
+    private static final String KEY_SM_AND = "sm_android";
+    private static final String KEY_SM_KERNEL = "sm_kernel";
+    private static final String KEY_SM_FLAGS = "sm_flags";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
-
     long[] mHits = new long[3];
     int mDevHitCountdown;
     Toast mDevHitToast;
@@ -112,6 +114,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
         setValueSummary(KEY_SLIMREMIX_VERSION, "ro.slimremix.version");
         findPreference(KEY_SLIMREMIX_VERSION).setEnabled(true);
+        findPreference(KEY_SM_AND).setEnabled(true);
+        findPreference(KEY_SM_KERNEL).setEnabled(true);
+        findPreference(KEY_SM_FLAGS).setEnabled(true);
+        setValueSummary(KEY_SM_AND, "ro.sm.android");
+        setValueSummary(KEY_SM_KERNEL, "ro.sm.kernel");
+        setValueSummary(KEY_SM_FLAGS, "ro.sm.flags");
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
