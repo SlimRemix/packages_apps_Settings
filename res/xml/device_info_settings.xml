@@ -153,4 +153,10 @@
                 android:title="@string/selinux_status"
                 android:summary="@string/selinux_status_enforcing"/>
 
+        <!-- SlimRemix version -->
+        <Preference android:key="slimremix_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/slimremix_version"
+                android:summary="@string/slimremix_version_default" />
+
 </PreferenceScreen>
