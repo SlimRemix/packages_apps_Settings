@@ -30,4 +30,9 @@
     <string name="sm_flags">Optimizations</string>
     <string name="sm_flags_default">None</string>
 
+    <!-- SlimRemix Changelog -->
+    <string name="changelog_title">Build changelog</string>
+    <string name="changelog_summary">A full changelog of the current build</string>
+    <string name="no_changelog_summary">No changelog</string>
+
 </resources>
