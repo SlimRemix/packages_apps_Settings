@@ -409,6 +409,8 @@
     <string name="clock_date_style_uppercase">Uppercase</string>
     <string name="clock_date_format_custom">Custom java format</string>
     <string name="status_bar_clock_style_reset_message">Reset clock color?</string>
+    <string name="status_bar_ticker_title">Notification Ticker</string>
+    <string name="status_bar_ticker_summary">Notification text animation in the statusbar</string>
     <string name="status_bar_toggle_brightness">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across status bar</string>
     <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
@@ -548,6 +550,7 @@
     <string name="shortcut_action_menu_big">Menu Big</string>
     <string name="shortcut_action_notifications">Notifications</string>
     <string name="shortcut_action_qs">Quicksettings panel</string>
+    <string name="shortcut_action_smart">Smart pulldown</string>
     <string name="shortcut_action_torch">Flashlight</string>
     <string name="shortcut_action_ring_vib">Ring/Vib</string>
     <string name="shortcut_action_ring_silent">Ring/Silent</string>
@@ -826,8 +829,17 @@
 
     <!-- Heads up -->
     <string name="heads_up_title">Heads up notification</string>
+    <string name="heads_up_global_switch_title">Heads up notifications mode</string>
+    <string name="heads_up_global_switch_summary_disabled">Heads up notifications are disabled</string>
+    <string name="heads_up_global_switch_summary_perapp">Heads up notifications are en-/disabled on a per app basis</string>
+    <string name="heads_up_global_switch_summary_forced">Heads up notifications are force enabled for all apps</string>
+    <string name="heads_up_global_switch_disabled">Never show heads up notifications</string>
+    <string name="heads_up_global_switch_perapp">Show heads up notifications on a per app basis</string>
+    <string name="heads_up_global_switch_forced">Always show heads up notifications</string>
     <string name="app_notification_enable_heads_up_title">Show heads up</string>
     <string name="app_notification_enable_heads_up_summary">Show notifications from this app as heads up</string>
+    <string name="app_notification_enable_heads_up_global_disabled_summary">Heads up are currently globally disabled in notification settings</string>
+    <string name="app_notification_enable_heads_up_global_forced_summary">Heads up are currently globally enabled in notification settings</string>
     <string name="heads_up_snooze_title">Snooze timer</string>
     <string name="heads_up_snooze_summary">If snooze button is pressed, disable heads up for <xliff:g id="number">%d</xliff:g> minutes</string>
     <string name="heads_up_snooze_disabled_summary">Snooze timer is disabled</string>
@@ -1068,5 +1080,9 @@
     <!-- Chamber of Secrets -->
     <string name="chamber_title">Chamber of secrets</string>
     <string name="chamber_toast">The chamber of secrets has opened</string>
+
+    <!-- Unaccounted and overcounted battery stats -->
+    <string name="show_unac_and_overcounted_stats_title">Show unaccounted/overcounted stats</string>
+    <string name="show_unac_and_overcounted_stats_summary">Show in battery statistics unaccounted and over-counted usage.</string>
 
 </resources>
