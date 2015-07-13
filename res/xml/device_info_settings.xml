@@ -201,4 +201,13 @@
                 android:title="@string/slimremix_version"
                 android:summary="@string/slimremix_version_default" />
 
+        <!-- Liquid Extra Info -->
+        <PreferenceScreen android:key="extrainfo"
+                android:title="@string/slimremixextrainfo"
+                android:summary="@string/slimremixextrainfo_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.slimremix.extrainfo.MainActivity" />
+        </PreferenceScreen>
+
 </PreferenceScreen>

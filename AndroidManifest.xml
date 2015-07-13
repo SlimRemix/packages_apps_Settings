@@ -2144,6 +2144,14 @@
         <activity android:name=".slimremix.gestureanywhere.GestureAnywhereBuilderActivity" />
         <activity android:name=".slimremix.gestureanywhere.GestureAnywhereCreateGestureActivity" />
 
+        <!-- Slimremix Extra info -->
+        <activity android:name="com.android.settings.slimremix.extrainfo.MainActivity"
+                  android:theme="@android:style/Theme.Material.Light.Dialog.NoActionBar.MinWidth">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"
                 android:exported="false"

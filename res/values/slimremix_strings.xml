@@ -313,4 +313,8 @@
     <string name="select_custom_activity_title">Select custom activity</string>
     <string name="profile_applist_title">Applications</string>
 
+    <!-- SlimRemix Extra Info -->
+    <string name="slimremixextrainfo">Extra information</string>
+    <string name="slimremixextrainfo_summary">Display extra info for cpu, display, etc</string>
+
 </resources>
