@@ -38,6 +38,12 @@
             android:fragment="com.android.settings.slimremix.fragments.BuildChangelogFragment" >
         </PreferenceScreen>
 
+        <!-- SlimRemix Share -->
+        <Preference
+            android:key="share"
+            android:title="@string/share_slimremix_title"
+            android:summary="@string/share_slimremix_summary" />
+
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
                 android:title="@string/device_status" 

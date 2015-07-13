@@ -317,4 +317,10 @@
     <string name="slimremixextrainfo">Extra information</string>
     <string name="slimremixextrainfo_summary">Display extra info for cpu, display, etc</string>
 
+    <!-- Share SlimRemix -->
+    <string name="share_slimremix_title">Share SlimRemix</string>
+    <string name="share_slimremix_summary">Let others know about SlimRemix</string>
+    <string name="share_message">Check out what #SlimRemix is all about @ https://plus.google.com/u/0/communities/103537861697639210768</string>
+    <string name="share_chooser_title">Share SlimRemix</string>
+
 </resources>
