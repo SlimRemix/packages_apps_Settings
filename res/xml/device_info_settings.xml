@@ -21,6 +21,16 @@
                           android:enabled="false"
                           android:layout="@layout/slim_logo_row" />
 
+        <!-- SlimRemix Updater -->
+        <PreferenceScreen android:key="slimremix_updates"
+                android:title="@string/slimremixupdate_settings_title"
+                android:icon="@drawable/ic_settings_slimremixupdater"
+                android:summary="@string/slimremixupdate_settings_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.cmremix.updater"
+                    android:targetClass="com.cmremix.updater.UpdatesSettings" />
+        </PreferenceScreen>
+
         <PreferenceScreen
             android:key="key_changelog"
             android:title="@string/changelog_title"
