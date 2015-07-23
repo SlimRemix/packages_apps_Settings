@@ -1163,4 +1163,8 @@
     <string name="increasing_ring_min_volume_title">Start volume</string>
     <string name="increasing_ring_ramp_up_time_title">Ramp-up time</string>
 
+    <!-- Lockscreen wallpaper -->
+    <string name="lockscreen_wallpaper_title">Wallpaper</string>
+    <string name="lockscreen_wallpaper_summary">Set lockscreen wallpaper</string>
+
 </resources>
