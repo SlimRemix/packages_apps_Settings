@@ -1180,4 +1180,7 @@
     <!-- SIM -->
     <string name="sim_no_number_set">No number assigned</string>
 
+    <!-- WiFi auto-configure priorities -->
+    <string name="wifi_auto_config_priorities">Auto conf. priorities</string>
+
 </resources>
