@@ -699,10 +699,6 @@ public class Status extends PreferenceActivity {
         return h + ":" + pad(m) + ":" + pad(s);
     }
 
-    private boolean isMultiSimEnabled() {
-        return (SubscriptionController.getInstance().getActiveSubInfoCount() > 1);
-    }
-
     private String getSerialNumber() {
         CmHardwareManager cmHardwareManager =
                 (CmHardwareManager) getSystemService(Context.CMHW_SERVICE);
@@ -712,3 +708,8 @@ public class Status extends PreferenceActivity {
             return Build.SERIAL;
         }
     }
+
+    private boolean isMultiSimEnabled() {
+        return (SubscriptionController.getInstance().getActiveSubInfoCount() > 1);
+    }
+}
