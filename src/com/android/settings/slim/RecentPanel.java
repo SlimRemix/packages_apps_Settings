@@ -30,6 +30,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.content.res.Resources;
 import android.preference.SlimSeekBarPreference;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
@@ -377,27 +378,30 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
     }
 
     private void updateRecentsLocation(int value) {
+        ContentResolver resolver = getContentResolver();
+        Resources res = getResources();
         int summary = -1;
 
-        Settings.System.putInt(getContentResolver(),
-            Settings.System.RECENTS_CLEAR_ALL_LOCATION, value);
+        Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, value);
 
         if (value == 0) {
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.RECENTS_CLEAR_ALL_LOCATION, 0);
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 0);
             summary = R.string.recents_clear_all_location_top_right;
         } else if (value == 1) {
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.RECENTS_CLEAR_ALL_LOCATION, 1);
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 1);
             summary = R.string.recents_clear_all_location_top_left;
         } else if (value == 2) {
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.RECENTS_CLEAR_ALL_LOCATION, 2);
-            summary = R.string.recents_clear_all_location_bottom_right;
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 2);
+            summary = R.string.recents_clear_all_location_top_center;
         } else if (value == 3) {
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.RECENTS_CLEAR_ALL_LOCATION, 3);
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 3);
+            summary = R.string.recents_clear_all_location_bottom_right;
+        } else if (value == 4) {
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 4);
             summary = R.string.recents_clear_all_location_bottom_left;
+        } else if (value == 5) {
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 5);
+            summary = R.string.recents_clear_all_location_bottom_center;
         }
         if (mRecentsClearAllLocation != null && summary != -1) {
             mRecentsClearAllLocation.setSummary(getResources().getString(summary));
