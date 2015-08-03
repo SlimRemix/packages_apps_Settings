@@ -17,9 +17,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/about_settings">
 
-        <PreferenceScreen android:key="slim_logo"
+        <!-- SlimRemix info -->
+        <PreferenceScreen android:key="smbanner"
                           android:enabled="false"
-                          android:layout="@layout/slim_logo_row" />
+                          android:layout="@layout/smbanner_row"
+                          android:selectable="false" />
+
+        <!--<PreferenceScreen android:key="slim_logo"
+                          android:enabled="false"
+                          android:layout="@layout/slim_logo_row" />-->
 
         <!-- SlimRemix Updater -->
         <PreferenceScreen android:key="slimremix_updates"
@@ -51,6 +57,40 @@
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.deviceinfo.Status" />
+        </PreferenceScreen>
+
+        <!-- SaberMod GCC build info -->
+        <Preference android:key="sm_android"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/sm_android"
+                android:summary="@string/sm_android_default"
+                android:selectable="false" />
+
+        <Preference android:key="sm_kernel"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/sm_kernel"
+                android:summary="@string/sm_kernel_default"
+                android:selectable="false" />
+
+        <Preference android:key="sm_flags"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/sm_flags"
+                android:summary="@string/sm_flags_default"
+                android:selectable="false" />
+
+        <!-- SlimRemix version -->
+        <Preference android:key="slimremix_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/slimremix_version"
+                android:summary="@string/slimremix_version_default" />
+
+        <!-- SlimRemix Extra Info -->
+        <PreferenceScreen android:key="extrainfo"
+                android:title="@string/slimremixextrainfo"
+                android:summary="@string/slimremixextrainfo_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.slimremix.extrainfo.MainActivity" />
         </PreferenceScreen>
 
         <!-- Legal Information -->
@@ -175,45 +215,5 @@
                 style="?android:preferenceInformationStyle"
                 android:title="@string/selinux_status"
                 android:summary="@string/selinux_status_enforcing"/>
-
-        <!-- SaberMod GCC build info -->
-
-        <PreferenceScreen android:key="smbanner"
-                          android:enabled="false"
-                          android:layout="@layout/smbanner_row"
-                          android:selectable="false" />
-
-        <Preference android:key="sm_android"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/sm_android"
-                android:summary="@string/sm_android_default"
-                android:selectable="false" />
-
-        <Preference android:key="sm_kernel"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/sm_kernel"
-                android:summary="@string/sm_kernel_default"
-                android:selectable="false" />
-
-        <Preference android:key="sm_flags"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/sm_flags"
-                android:summary="@string/sm_flags_default"
-                android:selectable="false" />
-
-        <!-- SlimRemix version -->
-        <Preference android:key="slimremix_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/slimremix_version"
-                android:summary="@string/slimremix_version_default" />
-
-        <!-- Liquid Extra Info -->
-        <PreferenceScreen android:key="extrainfo"
-                android:title="@string/slimremixextrainfo"
-                android:summary="@string/slimremixextrainfo_summary">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.android.settings"
-                    android:targetClass="com.android.settings.slimremix.extrainfo.MainActivity" />
-        </PreferenceScreen>
 
 </PreferenceScreen>
