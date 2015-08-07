@@ -79,7 +79,7 @@
     <string name="reset">Reset</string>
     <string name="dlg_reset_values_message">Reset values to\nAndroid- or SlimRemix default?</string>
     <string name="dlg_reset_android">Android</string>
-    <string name="dlg_reset_SlimRemix">SlimRemix</string>
+    <string name="dlg_reset_slimremix">SlimRemix</string>
     <string name="options_title">Options</string>
     <string name="color_title">Color</string>
     <string name="colors_title">Colors</string>
