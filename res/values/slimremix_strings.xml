@@ -70,6 +70,37 @@
          multiple font sizes in a limited amount of space. -->
     <string name="font_size_sample">Sample</string>
 
+    <!-- Global used -->
+    <string name="cat_network_icons_title">Network icons</string>
+    <string name="cat_network_activity_icons_title">Activity icons</string>
+    <string name="cat_airplane_mode_icon_title">Airplane mode icon</string>
+    <string name="cat_vpn_icon_title">Vpn icon</string>
+    <string name="cat_colors_title">Customize colors</string>
+    <string name="reset">Reset</string>
+    <string name="dlg_reset_values_message">Reset values to\nAndroid- or SlimRemix default?</string>
+    <string name="dlg_reset_android">Android</string>
+    <string name="dlg_reset_SlimRemix">SlimRemix</string>
+    <string name="options_title">Options</string>
+    <string name="color_title">Color</string>
+    <string name="colors_title">Colors</string>
+    <string name="weather_title">Weather</string>
+    <string name="background_title">Background</string>
+    <string name="icon_title">Icon</string>
+    <string name="icons_title">Icons</string>
+    <string name="text_title">Text</string>
+    <string name="normal_title">Normal</string>
+    <string name="color_fully_title">Fully connected</string>
+    <string name="show_title">Anzeigen</string>
+    <string name="show_weather_summary">Enable to show weather informations</string>
+    <string name="show_location_title">Show location</string>
+    <string name="show_location_summary">Enable to show the location</string>
+    <string name="lock_clock_missing_title">Clock widget isn\`t installed</string>
+    <string name="lock_clock_missing_summary">To use the weather feature, the Clock widget \'cLock\' has to be installed</string>
+    <string name="disabled_title">Disabled</string>
+    <string name="position_right_title">Right</string>
+    <string name="position_centered_title">Centered</string>
+    <string name="hidden_title">Hidden</string>
+
     <!-- Animation Controls -->
     <string name="animation_settings_reset_message">Reset all animation settings to default?</string>
     <string name="animation_settings_title">Animation Controls</string>
@@ -506,6 +537,7 @@
     <string name="weather_show_weather_title">Show weather</string>
     <string name="weather_show_weather_summary">Enable to show weather informations</string>
     <string name="weather_show_location_title">Show location</string>
+    <string name="weather_cat_notifications_title">Notifications</string>
     <string name="weather_show_location_summary">Enable to show the location</string>
     <string name="weather_show_timestamp_title">Show timestamp</string>
     <string name="weather_show_timestamp_summary">Enable to show the timestamp</string>
@@ -516,5 +548,21 @@
     <string name="weather_condition_icon_vclouds_title">VClouds</string>
     <string name="weather_colorize_all_icons_title">Colorize all icons</string>
     <string name="weather_colorize_all_icons_summary">Enable to colorize all icons, disable to colorize only the monochrome icons</string>
+    <string name="weather_hide_panel_title">Hide weather panel</string>
+    <string name="weather_hide_panel_dlg_title">Choose when the weather panel should be hidden</string>
+    <string name="weather_hide_panel_auto_title">Auto</string>
+    <string name="weather_hide_panel_custom_title">Custom</string>
+    <string name="weather_hide_panel_never_title">Never</string>
+    <string name="weather_hide_panel_auto_summary">The weather panel will be hidden, when the visible notifications will reach the maximum allowed notifications on the lock screen</string>
+    <string name="weather_hide_panel_custom_summary">The weather panel will be hidden, when the visible notifications will reach the choosen number of notifications (%s)</string>
+    <string name="weather_hide_panel_never_summary">The weather panel whon/`t be hidden</string>
+    <string name="weather_number_of_notifications_title">Number of notifications</string>
+    <string name="weather_number_of_notifications_dlg_title">Choose the number of notifications to hide the weather panel</string>
+    <string name="weather_number_of_notifications_always_title">Always</string>
+    <string name="weather_number_of_notifications_two_title">2</string>
+    <string name="weather_number_of_notifications_three_title">3</string>
+    <string name="weather_number_of_notifications_four_title">4</string>
+    <string name="weather_number_of_notifications_five_title">5</string>
+    <string name="weather_number_of_notifications_six_title">6</string>
 
 </resources>
