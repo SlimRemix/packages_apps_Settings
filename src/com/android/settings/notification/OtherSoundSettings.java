@@ -191,7 +191,7 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         for (SettingPref pref : PREFS) {
             pref.init(this);
         }
-        CMHardwareManager hardware = CMHardwareManager.getInstance(context);
+        CMHardwareManager hardware = CMHardwareManager.getInstance(mContext);
         if (!hardware.isSupported(CMHardwareManager.FEATURE_VIBRATOR)) {
             Preference preference = findPreference(KEY_VIBRATION_INTENSITY);
             if (preference != null) {
