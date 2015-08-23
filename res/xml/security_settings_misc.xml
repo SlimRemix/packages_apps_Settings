@@ -118,12 +118,6 @@
             android:title="@string/advanced_security_title"
             android:persistent="false">
 
-        <!-- SELinux changer -->
-        <SwitchPreference
-                android:key="selinux"
-                android:title="@string/selinux_title"
-                android:defaultValue="false" />
-
         <Preference android:key="manage_trust_agents"
                 android:title="@string/manage_trust_agents"
                 android:summary="@string/manage_trust_agents_summary"

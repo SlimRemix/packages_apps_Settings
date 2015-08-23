@@ -60,17 +60,10 @@ import com.android.settings.search.Indexable;
 import com.android.settings.search.SearchIndexableRaw;
 import com.android.settings.R;
 
-import java.io.InputStreamReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.BufferedReader;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
-
-import com.android.settings.slimremix.util.CMDProcessor;
 
 /**
  * Gesture lock pattern settings.
@@ -119,8 +112,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
     private static final String KEY_TRUST_AGENT = "trust_agent";
 
-    private static final String SELINUX = "selinux";
-
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
             KEY_LOCK_ENABLED, KEY_VISIBLE_PATTERN, KEY_VISIBLE_GESTURE, KEY_BIOMETRIC_WEAK_LIVELINESS,
@@ -156,8 +147,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private ListPreference mAdvancedReboot;
     private SwitchPreference mQuickUnlockScreen;
     private ListPreference mLockNumpadRandom;
-
-    private SwitchPreference mSelinux;
 
     private boolean mIsPrimary;
 
@@ -419,17 +408,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             } else if (numPhones > 1) {
                 iccLockGroup.removePreference(iccLock);
             }
-        }
-
-        mSelinux = (SwitchPreference) findPreference(SELINUX);
-        mSelinux.setOnPreferenceChangeListener(this);
-
-        if (CMDProcessor.runSuCommand("getenforce").getStdout().contains("Enforcing")) {
-            mSelinux.setChecked(true);
-            mSelinux.setSummary(R.string.selinux_enforcing_title);
-        } else {
-            mSelinux.setChecked(false);
-            mSelinux.setSummary(R.string.selinux_permissive_title);
         }
 
         // Show password
@@ -828,14 +806,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
                     Integer.valueOf((String) value));
             mLockNumpadRandom.setValue(String.valueOf(value));
             mLockNumpadRandom.setSummary(mLockNumpadRandom.getEntry());
-        } else if (preference == mSelinux) {
-            if (value.toString().equals("true")) {
-                CMDProcessor.runSuCommand("setenforce 1");
-                mSelinux.setSummary(R.string.selinux_enforcing_title);
-            } else if (value.toString().equals("false")) {
-                CMDProcessor.runSuCommand("setenforce 0");
-                mSelinux.setSummary(R.string.selinux_permissive_title);
-            }
         }
         return result;
     }
