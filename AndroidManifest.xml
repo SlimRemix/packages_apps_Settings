@@ -2169,6 +2169,10 @@
 
         <service android:name="com.android.settings.slimremix.hfm.CheckHosts" />
 
+        <activity android:name="com.android.settings.slimremix.hfm.HfmWhitelist"
+            android:label="@string/hfm_whitelist_title"
+            android:taskAffinity="com.android.settings" />
+
         <!-- Slimremix end here -->
 
         <receiver android:name=".widget.SettingsAppWidgetProvider"
