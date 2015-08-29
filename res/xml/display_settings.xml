@@ -19,6 +19,13 @@
         android:title="@string/display_settings"
         settings:keywords="@string/keywords_display">
 
+       <!-- Animation Controls -->
+       <PreferenceScreen
+               android:key="animation_settings"
+               android:title="@string/animation_settings_title"
+               android:fragment="com.android.settings.slimremix.animations.AnimationSettings" >
+          </PreferenceScreen>
+
         <!-- Smart cover -->
         <PreferenceScreen
                 android:key="smart_cover"

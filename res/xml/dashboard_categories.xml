@@ -99,30 +99,6 @@
                 android:title="@string/interface_settings_title"
                 />
 
-        <!-- Navigation -->
-        <dashboard-tile
-                android:id="@+id/navigation_settings"
-                android:icon="@drawable/ic_settings_navigation"
-                android:fragment="com.android.settings.slim.NavigationSettings"
-                android:title="@string/navigation_settings_title"
-                />
-
-        <!-- Advanced Settings -->
-        <dashboard-tile
-            android:id="@+id/advanced_settings"
-            android:fragment="com.android.settings.slimremix.AdvancedSettings"
-            android:title="@string/advanced_settings_title"
-            android:icon="@drawable/ic_settings_advanced">
-        </dashboard-tile>
-
-        <!-- Lock screen -->
-        <dashboard-tile
-                android:id="@+id/lockscreen_settings"
-                android:title="@string/lockscreen_title"
-                android:fragment="com.android.settings.slim.LockscreenSettings"
-                android:icon="@drawable/ic_settings_lockscreen"
-                />
-
         <!-- SlimOTA -->
         <dashboard-tile
                android:id="@+id/slimota"

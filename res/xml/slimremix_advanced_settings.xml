@@ -105,7 +105,8 @@
             android:key="lock_clock"
             android:title="@string/lock_clock_title"
             android:summary="@string/lock_clock_summary"
-            android:fragment="com.android.settings.slimremix.LockClock" />
+            android:fragment="com.android.settings.slimremix.LockClock" >
+       </PreferenceScreen>
 
         <PreferenceScreen
             android:key="screen_recorder"
@@ -118,7 +119,7 @@
     <PreferenceScreen
         android:key="hfm_settings"
         android:title="@string/hfm_pref_screen_title"
-        android:fragment="com.android.settings.aicp.hfm.HfmSettings" >
+        android:fragment="com.android.settings.slimremix.hfm.HfmSettings" >
        </PreferenceScreen>
 
         <PreferenceScreen
