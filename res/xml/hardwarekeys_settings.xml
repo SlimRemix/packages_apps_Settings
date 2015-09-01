@@ -21,11 +21,6 @@
         android:title="@string/general_title">
 
     <SwitchPreference
-        android:key="enable_hw_keys"
-        android:title="@string/enable_navkeys_title"
-        android:defaultValue="true" />
-
-       <SwitchPreference
             android:key="disable_hardware_button"
             android:title="@string/disable_hwbuttons_title"
             android:summary="@string/disable_hwbuttons_summary" />

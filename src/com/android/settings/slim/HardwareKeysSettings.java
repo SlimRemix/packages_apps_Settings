@@ -66,7 +66,6 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
 
     private static final String TAG = "HardwareKeys";
 
-    private static final String KEY_ENABLE_HW_KEYS = "enable_hw_keys";
     private static final String DISABLE_HARDWARE_BUTTONS = "disable_hardware_button";
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
     private static final String KEYS_OVERFLOW_BUTTON = "keys_overflow_button";
@@ -115,7 +114,6 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
     private static final int KEY_MASK_APP_SWITCH = 0x10;
     private static final int KEY_MASK_CAMERA     = 0x20;
 
-    private SwitchPreference mEnableHwKeys;
     private SwitchPreference mDisableHardwareButtons;
     private ButtonBacklightBrightness mBacklight;
     private ListPreference mOverflowButtonMode;
@@ -182,9 +180,6 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
 
         int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
-
-        mEnableHwKeys = (SwitchPreference) findPreference(KEY_ENABLE_HW_KEYS);
-        mEnableHwKeys.setOnPreferenceClickListener(this);
 
         boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
         boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
@@ -470,23 +465,10 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
         return null;
     }
 
-    private static void writeDisableHwKeys(Context context, boolean enabled) {
-        SharedPreferences preferences =
-                context.getSharedPreferences("hw_key_settings", Activity.MODE_PRIVATE);
-        preferences.edit().putBoolean(KEY_ENABLE_HW_KEYS, enabled).commit();
-
-        CMHardwareManager hardware = CMHardwareManager.getInstance(context);
-        hardware.set(CMHardwareManager.FEATURE_KEY_DISABLE, !enabled);
-    }
-
     @Override
     public boolean onPreferenceClick(Preference preference) {
         String settingsKey = null;
         int dialogTitle = 0;
-        if (preference == mEnableHwKeys) {
-            writeDisableHwKeys(getActivity(), !mEnableHwKeys.isChecked());
-            return true;
-        }
         if (preference == mBackPressAction) {
             settingsKey = Settings.System.KEY_BACK_ACTION;
             dialogTitle = R.string.keys_back_press_title;
@@ -674,17 +656,6 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
         menu.add(0, MENU_RESET, 0, R.string.shortcut_action_reset)
                 .setIcon(R.drawable.ic_settings_reset) // Use the reset icon
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-    }
-
-    public static void restore(Context context) {
-        CMHardwareManager hardware = CMHardwareManager.getInstance(context);
-        if (!hardware.isSupported(CMHardwareManager.FEATURE_KEY_DISABLE)) {
-            SharedPreferences preferences =
-                    context.getSharedPreferences("hw_key_settings", Activity.MODE_PRIVATE);
-
-            boolean enabled = preferences.getBoolean(KEY_ENABLE_HW_KEYS, false);
-            hardware.set(CMHardwareManager.FEATURE_KEY_DISABLE, enabled);
-        }
     }
 
     private void showDialogInner(int id, String settingsKey, int dialogTitle) {
