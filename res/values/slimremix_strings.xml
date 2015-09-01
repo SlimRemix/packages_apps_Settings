@@ -671,4 +671,8 @@
     <!-- Toast Icons -->
     <string name="toast_icon_title">Toast icon</string>
 
+    <!-- Time-context headers in notification header -->
+    <string name="status_bar_custom_header_title">Custom header image</string>
+    <string name="status_bar_custom_header_summary">Enable notification panel header image</string>
+
 </resources>
