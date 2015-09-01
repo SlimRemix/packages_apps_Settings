@@ -952,6 +952,20 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="shortcut_action_tile_entries">
+        <item>@string/shortcut_action_power</item>
+        <item>@string/shortcut_action_power_menu</item>
+        <item>@string/shortcut_action_screenshot</item>
+        <item>@string/shortcut_action_recent</item>
+    </string-array>
+
+    <string-array name="shortcut_action_tile_values" translatable="false">
+        <item>**power**</item>
+        <item>**power_menu**</item>
+        <item>**screenshot**</item>
+        <item>**recents**</item>
+    </string-array>
+
      <!-- Recent panel -->
     <string-array name="recent_panel_expanded_mode_entries">
         <item>@string/recent_panel_expanded_mode_auto</item>

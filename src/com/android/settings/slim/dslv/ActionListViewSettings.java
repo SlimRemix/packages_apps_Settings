@@ -98,6 +98,7 @@ public class ActionListViewSettings extends ListFragment implements
     private static final int LOCKSCREEN_SHORTCUT   = 4;
     private static final int POWER_MENU_SHORTCUT   = 5;
     private static final int SHAKE_EVENTS_DISABLED = 6;
+    private static final int QUICKTILE             = 7;
 
     private static final int DEFAULT_MAX_ACTION_NUMBER = 5;
 
@@ -548,6 +549,9 @@ public class ActionListViewSettings extends ListFragment implements
             case NAV_BAR:
                 return ActionHelper.getNavBarConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
+            case QUICKTILE:
+                return ActionHelper.getQuickTileConfigWithDescription(
+                    mActivity, mActionValuesKey, mActionEntriesKey);
             case PIE:
                 return ActionHelper.getPieConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
@@ -575,6 +579,9 @@ public class ActionListViewSettings extends ListFragment implements
                 break;
             case NAV_BAR:
                 ActionHelper.setNavBarConfig(mActivity, actionConfigs, reset);
+                break;
+            case QUICKTILE:
+                ActionHelper.setQuickTileConfig(mActivity, actionConfigs, reset);
                 break;
             case PIE:
                 ActionHelper.setPieConfig(mActivity, actionConfigs, reset);
