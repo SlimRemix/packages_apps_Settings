@@ -17,6 +17,7 @@
 package com.android.settings.slim;
 
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 
@@ -24,8 +25,8 @@ import com.android.settings.DisplaySettings;
 import com.android.settings.hardware.VibratorIntensity;
 import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
 import com.android.settings.livedisplay.DisplayGamma;
-import com.android.settings.slim.HardwareKeysSettings;
 import com.android.settings.location.LocationSettings;
+import com.android.settings.slim.HardwareKeysSettings;
 
 public class BootReceiver extends BroadcastReceiver {
     @Override
@@ -37,5 +38,6 @@ public class BootReceiver extends BroadcastReceiver {
         VibratorIntensity.restore(ctx);
         InputMethodAndLanguageSettings.restore(ctx);
         LocationSettings.restore(ctx);
+        HardwareKeysSettings.restore(context);
     }
 }
