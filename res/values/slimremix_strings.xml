@@ -662,4 +662,7 @@
     <string name="lock_screen_hide_carrier_title">Hide carrier on lock screen</string>
     <string name="lock_screen_hide_carrier_summary">SystemUI will be restarted on switch toggle.</string>
 
+    <!-- Toast Icons -->
+    <string name="toast_icon_title">Toast icon</string>
+
 </resources>

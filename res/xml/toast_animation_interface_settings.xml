@@ -27,6 +27,11 @@
         android:entryValues="@array/anim_controls_values"
         android:persistent="false" />
 
+    <com.android.settings.slim.SystemSettingSwitchPreference
+        android:key="toast_icon"
+        android:title="@string/toast_icon_title"
+        android:defaultValue="true" />
+
     <Preference
         android:key="toast_test_animation"
         android:title="@string/toast_test_animation" />
