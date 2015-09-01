@@ -169,6 +169,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_ringer_audible";
                 stringId = R.string.qs_tile_notifications;
                 break;
+            case QSConstants.TILE_VOLUME:
+                resourceName = "ic_qs_volume_panel";
+                stringId = R.string.qs_tile_volume_panel;
+                break;
             default:
                 return null;
         }
