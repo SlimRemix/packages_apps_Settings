@@ -1277,4 +1277,8 @@
     <string name="backlight_summary_enabled_with_timeout">Enabled for <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Enabled</string>
 
+    <!-- Expand volume panel -->
+    <string name="volume_panel_expanded_title">Expand volume panel</string>
+    <string name="volume_panel_expanded_summary">Show volume panel in expanded mode by default</string>
+
 </resources>
