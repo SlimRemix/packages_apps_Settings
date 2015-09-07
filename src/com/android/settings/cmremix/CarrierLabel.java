@@ -41,6 +41,7 @@ import android.widget.EditText;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import android.preference.SlimSeekBarPreference;
 import com.android.internal.util.slim.DeviceUtils;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -50,14 +51,15 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
 
     private static final String STATUS_BAR_CARRIER = "status_bar_carrier";
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
+    private static final String STATUS_BAR_CARRIER_FONT_SIZE  = "status_bar_carrier_font_size";
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
 
     static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
 
     private SwitchPreference mStatusBarCarrier;
     private PreferenceScreen mCustomCarrierLabel;
-
     private String mCustomCarrierLabelText;
+    private SlimSeekBarPreference mStatusBarCarrierSize;
     private ColorPickerPreference mCarrierColorPicker;
 
     @Override
@@ -76,6 +78,11 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         mStatusBarCarrier.setChecked((Settings.System.getInt(resolver, Settings.System.STATUS_BAR_CARRIER, 0) == 1));
         mStatusBarCarrier.setOnPreferenceChangeListener(this);
         mCustomCarrierLabel = (PreferenceScreen) prefSet.findPreference(CUSTOM_CARRIER_LABEL);
+
+        mStatusBarCarrierSize = (SlimSeekBarPreference) findPreference(STATUS_BAR_CARRIER_FONT_SIZE);
+        mStatusBarCarrierSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 14));
+        mStatusBarCarrierSize.setOnPreferenceChangeListener(this);
 
         mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
         mCarrierColorPicker.setOnPreferenceChangeListener(this);
@@ -118,6 +125,11 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         } else if (preference == mStatusBarCarrier) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_CARRIER, value ? 1 : 0);
+            return true;
+         } else if (preference == mStatusBarCarrierSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, width);
             return true;
          }
          return false;
