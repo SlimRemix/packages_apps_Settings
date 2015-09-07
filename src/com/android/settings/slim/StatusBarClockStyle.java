@@ -56,6 +56,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
     private static final String PREF_ENABLE = "clock_style";
     private static final String PREF_AM_PM_STYLE = "status_bar_am_pm";
     private static final String PREF_COLOR_PICKER = "clock_color";
+    private static final String PREF_FONT_STYLE = "font_style";
     private static final String PREF_CLOCK_DATE_DISPLAY = "clock_date_display";
     private static final String PREF_CLOCK_DATE_STYLE = "clock_date_style";
     private static final String PREF_CLOCK_DATE_POSITION = "clock_date_position";
@@ -73,6 +74,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
     private ListPreference mClockStyle;
     private ListPreference mClockAmPmStyle;
     private ColorPickerPreference mColorPicker;
+    private ListPreference mFontStyle;
     private ListPreference mClockDateDisplay;
     private ListPreference mClockDateStyle;
     private ListPreference mClockDatePosition;
@@ -183,6 +185,13 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
             mClockDateFormat.setEnabled(false);
         }
 
+        mFontStyle = (ListPreference) findPreference(PREF_FONT_STYLE);
+        mFontStyle.setOnPreferenceChangeListener(this);
+        mFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUSBAR_CLOCK_FONT_STYLE,
+                4)));
+        mFontStyle.setSummary(mFontStyle.getEntry());
+
         setHasOptionsMenu(true);
         mCheckPreferences = true;
         return prefSet;
@@ -215,6 +224,13 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_COLOR, intHex);
+            return true;
+        } else if (preference == mFontStyle) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_FONT_STYLE, val);
+            mFontStyle.setSummary(mFontStyle.getEntries()[index]);
             return true;
         } else if (preference == mClockDateDisplay) {
             int val = Integer.parseInt((String) newValue);
