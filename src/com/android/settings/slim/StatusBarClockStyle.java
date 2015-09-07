@@ -17,6 +17,7 @@
 package com.android.settings.slim;
 
 import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
@@ -33,7 +34,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
-import android.preference.SlimSeekBarPreference;
+import com.android.settings.slimremix.util.SeekBarPreferenceCham;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
@@ -77,7 +78,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
     private ListPreference mClockAmPmStyle;
     private ColorPickerPreference mColorPicker;
     private ListPreference mFontStyle;
-    private SlimSeekBarPreference mStatusBarDateSize;
+    private SeekBarPreferenceCham mStatusBarDateSize;
     private ListPreference mClockDateDisplay;
     private ListPreference mClockDateStyle;
     private ListPreference mClockDatePosition;
@@ -101,6 +102,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.status_bar_clock_style);
         prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
 
         PackageManager pm = getPackageManager();
         Resources systemUiResources;
@@ -195,7 +197,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
                 0)));
         mFontStyle.setSummary(mFontStyle.getEntry());
 
-        mStatusBarDateSize = (SlimSeekBarPreference) findPreference(PREF_FONT_SIZE);
+        mStatusBarDateSize = (SeekBarPreferenceCham) findPreference(PREF_FONT_SIZE);
         mStatusBarDateSize.setValue(Settings.System.getInt(resolver,
                 Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14));
         mStatusBarDateSize.setOnPreferenceChangeListener(this);
@@ -210,7 +212,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
             return false;
         }
         AlertDialog dialog;
-
+        ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mClockAmPmStyle) {
             int val = Integer.parseInt((String) newValue);
             int index = mClockAmPmStyle.findIndexOfValue((String) newValue);
