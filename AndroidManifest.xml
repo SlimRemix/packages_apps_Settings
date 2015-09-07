@@ -1862,6 +1862,9 @@
                        android:resource="@id/display_settings" />
         </activity-alias>
 
+        <!-- SystemApp Remover -->
+        <activity android:name="com.android.settings.slim.fragments.SystemappRemover" />
+
         <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
         <activity android:name="Settings$BlacklistSettingsActivity"
                 android:uiOptions="splitActionBarWhenNarrow"
