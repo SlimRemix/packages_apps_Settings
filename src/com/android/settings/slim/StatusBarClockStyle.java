@@ -33,6 +33,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.preference.SlimSeekBarPreference;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
@@ -57,6 +58,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
     private static final String PREF_AM_PM_STYLE = "status_bar_am_pm";
     private static final String PREF_COLOR_PICKER = "clock_color";
     private static final String PREF_FONT_STYLE = "font_style";
+    private static final String PREF_FONT_SIZE  = "font_size";
     private static final String PREF_CLOCK_DATE_DISPLAY = "clock_date_display";
     private static final String PREF_CLOCK_DATE_STYLE = "clock_date_style";
     private static final String PREF_CLOCK_DATE_POSITION = "clock_date_position";
@@ -75,6 +77,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
     private ListPreference mClockAmPmStyle;
     private ColorPickerPreference mColorPicker;
     private ListPreference mFontStyle;
+    private SlimSeekBarPreference mStatusBarDateSize;
     private ListPreference mClockDateDisplay;
     private ListPreference mClockDateStyle;
     private ListPreference mClockDatePosition;
@@ -192,6 +195,11 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
                 4)));
         mFontStyle.setSummary(mFontStyle.getEntry());
 
+        mStatusBarDateSize = (SlimSeekBarPreference) findPreference(PREF_FONT_SIZE);
+        mStatusBarDateSize.setValue(Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14));
+        mStatusBarDateSize.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
         mCheckPreferences = true;
         return prefSet;
@@ -231,6 +239,11 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_FONT_STYLE, val);
             mFontStyle.setSummary(mFontStyle.getEntries()[index]);
+            return true;
+        } else if (preference == mStatusBarDateSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(resolver,
+                    Settings.System.STATUSBAR_CLOCK_FONT_SIZE, width);
             return true;
         } else if (preference == mClockDateDisplay) {
             int val = Integer.parseInt((String) newValue);
