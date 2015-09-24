@@ -17,6 +17,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:key="lockscreen_wallpaper"
+        android:title="@string/lockscreen_wallpaper_title" >
+
     <Preference
         android:key="lockscreen_wallpaper_set"
         android:title="@string/lockscreen_wallpaper_set_title"
@@ -26,5 +30,21 @@
         android:key="lockscreen_wallpaper_clear"
         android:title="@string/lockscreen_wallpaper_clear_title"
         android:persistent="false"/>
+
+    </PreferenceCategory>
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="lockscreen_see_through"
+        android:title="@string/lockscreen_see_through_title"
+        android:summary="@string/lockscreen_see_through_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.slimremix.util.SeekBarPreferenceCham
+        android:key="lockscreen_blur_radius"
+        android:title="@string/lockscreen_blur_radius"
+        android:max="25"
+        settings:minimum="0"
+        settings:defaultVal="14"
+        settings:interval="1" />
 
 </PreferenceScreen>

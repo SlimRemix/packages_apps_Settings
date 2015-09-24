@@ -704,4 +704,9 @@
     <string name="clock_font_size_title">Font size</string>
     <string name="status_bar_show_clock_second_title">Clock seconds</string>
 
+    <!-- Lockscreen see through -->
+    <string name="lockscreen_see_through_title">Lockscreen blur</string>
+    <string name="lockscreen_see_through_summary">Blurs and displays the content behind your lockscreen.</string>
+    <string name="lockscreen_blur_radius">Blur effect intensity</string> 
+
 </resources>
