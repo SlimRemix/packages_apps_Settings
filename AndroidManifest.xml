@@ -2153,8 +2153,6 @@
         <activity android:name=".notificationlight.BatteryLightSettings" />
         <activity android:name=".slim.PerformanceSettings" />
 
-        <!-- Slimremix start here -->
-
         <activity android:name=".slimremix.gestureanywhere.GestureAnywhereBuilderActivity" />
         <activity android:name=".slimremix.gestureanywhere.GestureAnywhereCreateGestureActivity" />
 
@@ -2165,20 +2163,6 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
-        <receiver android:name="com.android.settings.slimremix.hfm.IntentReceiver" >
-            <intent-filter>
-                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
-        <service android:name="com.android.settings.slimremix.hfm.CheckHosts" />
-
-        <activity android:name="com.android.settings.slimremix.hfm.HfmWhitelist"
-            android:label="@string/hfm_whitelist_title"
-            android:taskAffinity="com.android.settings" />
-
-        <!-- Slimremix end here -->
 
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"

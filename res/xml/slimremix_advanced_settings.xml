@@ -115,13 +115,6 @@
             android:fragment="com.android.settings.slim.ScreenRecorderSettings" >
         </PreferenceScreen>
 
-    <!-- Ad blocker -->
-    <PreferenceScreen
-        android:key="hfm_settings"
-        android:title="@string/hfm_pref_screen_title"
-        android:fragment="com.android.settings.slimremix.hfm.HfmSettings" >
-       </PreferenceScreen>
-
         <PreferenceScreen
             android:key="key_bug_report"
             android:title="@string/bug_report_title"
