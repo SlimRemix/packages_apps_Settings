@@ -1321,4 +1321,7 @@
     <!-- Whether the keyguard will directly pass to PIN entry -->
     <string name="lock_directly_show_pin">Directly show PIN entry</string>
 
+    <!-- AdAway -->
+    <string name="adaway_settings_title">AdAway</string>
+
 </resources>

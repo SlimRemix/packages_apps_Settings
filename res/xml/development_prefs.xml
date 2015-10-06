@@ -61,6 +61,16 @@
         android:title="@string/enable_quickboot_title"
         android:summary="@string/enable_quickboot_summary" />
 
+    <PreferenceScreen
+        android:key="adaway"
+        android:title="@string/adaway_settings_title"
+        android:persistent="false" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.adaway"
+            android:targetClass="org.adaway.ui.BaseActivity" />
+    </PreferenceScreen>
+
     <ListPreference
         android:key="root_access"
         android:title="@string/root_access"
