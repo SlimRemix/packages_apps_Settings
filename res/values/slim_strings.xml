@@ -1324,4 +1324,7 @@
     <!-- AdAway -->
     <string name="adaway_settings_title">AdAway</string>
 
+    <!-- About phone screen, status item label  [CHAR LIMIT=60] -->
+    <string name="security_patch">Android security patch level</string>
+
 </resources>
